@@ -1,6 +1,6 @@
 .mode csv
 .import mtcars.csv mtcars
-.output coefs.csv
+.output train-coefs.csv
 .headers ON
 
 with x_tbl as (
@@ -9,6 +9,8 @@ with x_tbl as (
     wt as x 
   from 
     mtcars 
+  where 
+    rowid < 10
 ),
 
 avg_x_tbl as (
@@ -24,6 +26,8 @@ y_tbl as (
     mpg as y
   from 
     mtcars
+  where 
+    rowid < 10
 ),
 
 avg_y_tbl as (
